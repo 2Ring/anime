@@ -886,20 +886,6 @@ const engine = (() => {
   return play;
 })();
 
-function handleVisibilityChange() {
-  if (document.hidden) {
-    activeInstances.forEach(ins => ins.pause());
-    pausedInstances = activeInstances.slice(0);
-    activeInstances = [];
-  } else {
-    pausedInstances.forEach(ins => ins.play());
-  }
-}
-
-if (typeof document !== 'undefined') {
-  document.addEventListener('visibilitychange', handleVisibilityChange);
-}
-
 // Public Instance
 
 function anime(params = {}) {
